@@ -5,7 +5,7 @@
 
 set -e
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
 NVIM_SCRIPT="$SCRIPT_DIR/neovim.sh"
 GVM_SCRIPT="$SCRIPT_DIR/gvm.sh"
 
@@ -25,11 +25,28 @@ log_error() {
 check_dependencies() {
     log_info "Checking required dependencies..."
 
-    if [ ! -x "$NVIM_SCRIPT" ]; then
+    local nvim_found=false
+    local gvm_found=false
+
+    if [ -f "$NVIM_SCRIPT" ] && [ -x "$NVIM_SCRIPT" ]; then
+        nvim_found=true
+    elif [ -f "init/neovim.sh" ] && [ -x "init/neovim.sh" ]; then
+        NVIM_SCRIPT="init/neovim.sh"
+        nvim_found=true
+    fi
+
+    if [ -f "$GVM_SCRIPT" ] && [ -x "$GVM_SCRIPT" ]; then
+        gvm_found=true
+    elif [ -f "init/gvm.sh" ] && [ -x "init/gvm.sh" ]; then
+        GVM_SCRIPT="init/gvm.sh"
+        gvm_found=true
+    fi
+
+    if [ "$nvim_found" = false ]; then
         log_error "neovim.sh script not found or not executable"
     fi
 
-    if [ ! -x "$GVM_SCRIPT" ]; then
+    if [ "$gvm_found" = false ]; then
         log_error "gvm.sh script not found or not executable"
     fi
 
