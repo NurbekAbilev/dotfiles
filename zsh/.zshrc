@@ -107,9 +107,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
-# fzf
-source <(fzf --zsh)
-
 export PATH=$PATH:/usr/local/go/bin
 
 export NVM_DIR="$HOME/.nvm"
@@ -139,3 +136,6 @@ alias nvimconfig='nvim ~/.config/nvim'
 
 # opencode
 export PATH=/home/nurbek/.opencode/bin:$PATH
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
