@@ -117,7 +117,7 @@ export NVM_DIR="$HOME/.nvm"
 export windownloads="/mnt/c/Users/Nurbek/Downloads/"
 
 # PATH
-export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+# export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 export PATH="$PATH:$HOME/node/node-v24.13.0-linux-x64/bin"
