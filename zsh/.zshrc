@@ -122,6 +122,7 @@ export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 export PATH="$PATH:$HOME/node/node-v24.13.0-linux-x64/bin"
 export PATH="$PATH:$HOME/.nvm/versions/node/v20.15.0/bin"
+export PATH="$PATH:$HOME/.local/bin/"
 
 export EDITOR="/opt/nvim-linux-x86_64/bin/nvim"
 export VISUAL="/opt/nvim-linux-x86_64/bin/nvim"
